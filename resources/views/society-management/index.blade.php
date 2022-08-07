@@ -4,19 +4,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-between">
-                    <h4 class="card-title">Users Table</h4>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
+                    <h4 class="card-title">Societies Table</h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newSociety">
                         <i data-feather="plus"></i>
-                        &nbsp;New User
+                        &nbsp;New Society
                     </button>
                 </div>
                 <div class="card-body">
-                    <livewire:tables.users-table />
+                    <livewire:tables.societies-table />
                 </div>
             </div>
         </div>
     </div>
-
     <!-- create modal -->
-    <livewire:dashboard.user-management.create-component />
+    <livewire:dashboard.society-management.create-component />
 @endsection

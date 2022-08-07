@@ -40,7 +40,9 @@
                     <div class="content-header row">
                     </div>
                     <div class="content-body">
-                        <x-bread-crumb-component />
+                        @if (!Route::is('dashboard'))
+                            <x-bread-crumb-component />
+                        @endif
                         @yield('content')
                     </div>
                 </div>

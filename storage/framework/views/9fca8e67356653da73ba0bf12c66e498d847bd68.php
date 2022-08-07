@@ -8,8 +8,7 @@
     <script src="<?php echo e(asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')); ?>"></script>
 
     <script>
-        $(".sw-cnfrm").click(function(e) {
-            e.preventDefault();
+        $(document).on('click', '.sw-cnfrm', function() {
             let id = $(this).data('id');
 
             Swal.fire({
@@ -25,7 +24,7 @@
                 buttonsStyling: false
             }).then(function(result) {
                 if (result.value) {
-                    Livewire.emit('deleteUser', id)
+                    Livewire.emit('delete', id)
                 }
             });
         });

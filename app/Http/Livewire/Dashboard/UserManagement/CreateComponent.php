@@ -8,7 +8,12 @@ use Livewire\Component;
 
 class CreateComponent extends Component
 {
-    public $user;
+    public $user, $master;
+
+    public function mount($master = "User Account")
+    {
+        $this->master = $master;
+    }
 
     public function rules()
     {
@@ -25,14 +30,16 @@ class CreateComponent extends Component
         $this->validateOnly($property);
     }
 
-    public function storeUser()
+    public function store()
     {
         $this->validate();
+        $master = $this->master;
         $this->user['password'] = Hash::make($this->user['password']);
 
         User::firstOrCreate($this->user)
-            ? $this->emit('toast', 'success', 'User Account', 'The account was created successfully and the password was shared on email address.')
-            : $this->emit('toast', 'error', 'User Account', 'Failed to create accont, please try again.');
+            ? $this->emit('toast', 'success', "$master Management", "The $master was created successfully and the password was shared on email address.")
+            : $this->emit('toast', 'error', "$master Management", "The $master was not created successfully, please try again.");
+
 
         $this->emit('refreshDatatable');
     }

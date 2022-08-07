@@ -21,8 +21,16 @@ Route::get('/', function () {
 });
 
 Route::group([
-    'middleware' => 'auth',
+    'middleware' => ['auth', 'can:is-s'],
+], function () {
+    Route::view('/user-management', 'user-management.index')->name('user.management');
+});
+
+Route::group([
+    'middleware' => ['auth', 'can:is-sa'],
 ], function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/user-management', 'user-management.index')->name('user.management');
+    Route::view('/society-management', 'society-management.index')->name('society.management');
+    Route::view('/plot-management', 'plot-management.index')->name('plot.management');
+    Route::view('/plot-types-management', 'plot-types-management.index')->name('plot.types.management');
 });

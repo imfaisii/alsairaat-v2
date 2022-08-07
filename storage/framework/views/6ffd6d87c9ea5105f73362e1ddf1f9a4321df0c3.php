@@ -61,23 +61,70 @@
                         <span class="menu-title text-truncate" data-i18n="Todo">Dashboard</span>
                     </a>
                 </li>
-                <li class="navigation-header"><span data-i18n="User &amp; Management">User Management</span>
-                    <i data-feather="more-horizontal"></i>
-                </li>
-                <li class="nav-item <?php if(Route::is('user.management')): ?> open <?php endif; ?>">
-                    <a class="d-flex align-items-center" href="#">
-                        <i data-feather="users"></i>
-                        <span class="menu-title text-truncate" data-i18n="Invoice">Users</span>
-                    </a>
-                    <ul class="menu-content">
-                        <li <?php if(Route::is('user.management')): ?> class="active" <?php endif; ?>>
-                            <a class="d-flex align-items-center" href="<?php echo e(route('user.management')); ?>">
-                                <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('is-s')): ?>
+                    <li class="navigation-header"><span data-i18n="User &amp; Management">User Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item <?php if(Route::is('user.management')): ?> open <?php endif; ?>">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="users"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Users</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('user.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('user.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('is-sa')): ?>
+                    <li class="navigation-header"><span data-i18n="Society &amp; Management">Society Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item <?php if(Route::is('society.management')): ?> open <?php endif; ?>">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="map"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Societies</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('society.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('society.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navigation-header"><span data-i18n="Plots &amp; Management">Plots Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item <?php if(Route::is('plot.management')): ?> open <?php endif; ?>">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="map"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Plots</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('plot.types.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('plot.types.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Plot Type(s)</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('plot.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('plot.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

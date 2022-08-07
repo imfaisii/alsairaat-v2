@@ -61,23 +61,70 @@
                         <span class="menu-title text-truncate" data-i18n="Todo">Dashboard</span>
                     </a>
                 </li>
-                <li class="navigation-header"><span data-i18n="User &amp; Management">User Management</span>
-                    <i data-feather="more-horizontal"></i>
-                </li>
-                <li class="nav-item @if (Route::is('user.management')) open @endif">
-                    <a class="d-flex align-items-center" href="#">
-                        <i data-feather="users"></i>
-                        <span class="menu-title text-truncate" data-i18n="Invoice">Users</span>
-                    </a>
-                    <ul class="menu-content">
-                        <li @if (Route::is('user.management')) class="active" @endif>
-                            <a class="d-flex align-items-center" href="{{ route('user.management') }}">
-                                <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @can('is-s')
+                    <li class="navigation-header"><span data-i18n="User &amp; Management">User Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item @if (Route::is('user.management')) open @endif">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="users"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Users</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li @if (Route::is('user.management')) class="active" @endif>
+                                <a class="d-flex align-items-center" href="{{ route('user.management') }}">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
+
+                @can('is-sa')
+                    <li class="navigation-header"><span data-i18n="Society &amp; Management">Society Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item @if (Route::is('society.management')) open @endif">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="map"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Societies</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li @if (Route::is('society.management')) class="active" @endif>
+                                <a class="d-flex align-items-center" href="{{ route('society.management') }}">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navigation-header"><span data-i18n="Plots &amp; Management">Plots Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item @if (Route::is('plot.management')) open @endif">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="map"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Plots</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li @if (Route::is('plot.types.management')) class="active" @endif>
+                                <a class="d-flex align-items-center" href="{{ route('plot.types.management') }}">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Plot Type(s)</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-content">
+                            <li @if (Route::is('plot.management')) class="active" @endif>
+                                <a class="d-flex align-items-center" href="{{ route('plot.management') }}">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
             </ul>
         </div>
     </div>

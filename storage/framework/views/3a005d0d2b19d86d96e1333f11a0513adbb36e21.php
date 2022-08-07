@@ -1,7 +1,7 @@
 <div wire:ignore.self class="modal fade text-start" id="newUser" tabindex="-1" aria-labelledby="myModalLabel17"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <form wire:submit.prevent='storeUser' class="form form-vertical">
+        <form wire:submit.prevent='store' class="form form-vertical">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">New User Form</h4>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Tables;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -9,14 +9,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends DataTableComponent
 {
-    protected $model = User::class;
-    protected $listeners = ['refreshDatatable' => '$refresh', 'deleteUser'];
+    protected $model = User::class, $listeners = ['refreshDatatable' => '$refresh', 'delete'];
 
-    public function deleteUser(User $user)
+    public function delete(User $user, $master = "User Account")
     {
         $user->delete()
-            ? $this->emit('toast', 'success', 'User Account', 'The account was deleted successfully.')
-            : $this->emit('toast', 'error', 'User Account', 'Failed to delete accont, please try again.');
+            ? $this->emit('toast', 'success', "$master", "The $master was deleted successfully.")
+            : $this->emit('toast', 'error', "$master", "Failed to delete $master, please try again.");
     }
 
     public function configure(): void
@@ -28,39 +27,35 @@ class UsersTable extends DataTableComponent
     {
         return [
             Column::make("Name", "name")
+                ->searchable()
                 ->sortable(),
             Column::make("Email", "email")
+                ->searchable()
                 ->sortable(),
             Column::make("Role", "role")
                 ->format(
                     fn ($value, $row, Column $column) => ucwords($value)
                 )
                 ->html()
+                ->searchable()
                 ->sortable(),
             Column::make("Status", "status")
                 ->format(
                     function ($value, $row, Column $column) {
                         if ($value == 'active')
-                            return '<span class="badge bg-success">' . $value . '</span>';
+                            return '<span class="badge badge-glow bg-success">' . ucwords($value) . '</span>';
                         else
-                            return '<span class="badge bg-danger">' . $value . '</span>';
+                            return '<span class="badge badge-glow bg-danger">' . ucwords($value) . '</span>';
                     }
                 )
                 ->html(),
-            Column::make('Action', 'id')
-                ->view('livewire-tables.rows.general.delete'),
             Column::make("Created at", "created_at")
                 ->format(
                     fn ($value, $row, Column $column) => $value->diffForHumans()
                 )
-                ->html()
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
-                ->format(
-                    fn ($value, $row, Column $column) => $value->diffForHumans()
-                )
-                ->html()
-                ->sortable(),
+            Column::make('Action', 'id')
+                ->view('livewire-tables.rows.general.delete'),
         ];
     }
 
