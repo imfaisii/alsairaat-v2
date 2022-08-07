@@ -25,7 +25,6 @@ class CreateComponent extends Component
         $this->validateOnly($property);
     }
 
-
     public function storeUser()
     {
         $this->validate();

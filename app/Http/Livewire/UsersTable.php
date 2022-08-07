@@ -38,7 +38,15 @@ class UsersTable extends DataTableComponent
                 ->html()
                 ->sortable(),
             Column::make("Status", "status")
-                ->view('livewire-tables.rows.users.status'),
+                ->format(
+                    function ($value, $row, Column $column) {
+                        if ($value == 'active')
+                            return '<span class="badge bg-success">' . $value . '</span>';
+                        else
+                            return '<span class="badge bg-danger">' . $value . '</span>';
+                    }
+                )
+                ->html(),
             Column::make('Action', 'id')
                 ->view('livewire-tables.rows.general.delete'),
             Column::make("Created at", "created_at")
