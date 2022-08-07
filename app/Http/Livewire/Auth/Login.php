@@ -16,6 +16,7 @@ class Login extends Component
         return [
             'user.email' => 'required|exists:users,email',
             'user.password' => 'required'
+        ];
     }
 
     public function updated($property)
