@@ -28,4 +28,18 @@
         }
     })
 </script>
+<?php if(Route::is('dashboard')): ?>
+    <script>
+        // On load Toast
+        setTimeout(function() {
+            toastr['success'](
+                'You have successfully logged in to <?php echo e(config('app.name')); ?>. Now you can start to explore!',
+                "👋 <?php echo e(auth()->user()->name); ?>", {
+                    closeButton: true,
+                    tapToDismiss: false,
+                }
+            );
+        }, 2000);
+    </script>
+<?php endif; ?>
 <?php /**PATH C:\laragon\www\alsairaat\resources\views/partials/app/scripts.blade.php ENDPATH**/ ?>

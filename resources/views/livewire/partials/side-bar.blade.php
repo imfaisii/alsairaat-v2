@@ -104,7 +104,7 @@
                     </li>
                     <li class="nav-item @if (Route::is('plot.management')) open @endif">
                         <a class="d-flex align-items-center" href="#">
-                            <i data-feather="map"></i>
+                            <i data-feather="box"></i>
                             <span class="menu-title text-truncate" data-i18n="Invoice">Plots</span>
                         </a>
                         <ul class="menu-content">

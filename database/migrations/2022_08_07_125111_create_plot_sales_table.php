@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Customer;
+use App\Models\Plot;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,16 +16,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('plot_sales', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('father_name')->nullable();
-            $table->string('husband_name')->nullable();
-            $table->string('cnic');
-            $table->string('mobile_number');
-            $table->text('address');
-            $table->string('email')->nullable();
+            $table->bigInteger('price');
+            $table->bigInteger('discount')->nullable();
+            $table->bigInteger('total')->nullable();
             $table->string('reference')->nullable();
+            $table->foreignIdFor(Plot::class)->constrained();
+            $table->foreignIdFor(Customer::class)->constrained();
             $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('plot_sales');
     }
 };

@@ -28,3 +28,17 @@
         }
     })
 </script>
+@if (Route::is('dashboard'))
+    <script>
+        // On load Toast
+        setTimeout(function() {
+            toastr['success'](
+                'You have successfully logged in to {{ config('app.name') }}. Now you can start to explore!',
+                "👋 {{ auth()->user()->name }}", {
+                    closeButton: true,
+                    tapToDismiss: false,
+                }
+            );
+        }, 2000);
+    </script>
+@endif

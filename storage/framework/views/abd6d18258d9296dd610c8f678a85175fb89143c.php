@@ -1,4 +1,11 @@
 
+<?php $__env->startPush('extended-css'); ?>
+    <style>
+        .customer-sale {
+            border: transparent;
+        }
+    </style>
+<?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
     <div class="row" id="basic-table">
         <div class="col-12">
@@ -14,15 +21,15 @@
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('tables.plots-table', [])->html();
-} elseif ($_instance->childHasBeenRendered('PDA3bGm')) {
-    $componentId = $_instance->getRenderedChildComponentId('PDA3bGm');
-    $componentTag = $_instance->getRenderedChildComponentTagName('PDA3bGm');
+} elseif ($_instance->childHasBeenRendered('LhkKWTE')) {
+    $componentId = $_instance->getRenderedChildComponentId('LhkKWTE');
+    $componentTag = $_instance->getRenderedChildComponentTagName('LhkKWTE');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('PDA3bGm');
+    $_instance->preserveRenderedChild('LhkKWTE');
 } else {
     $response = \Livewire\Livewire::mount('tables.plots-table', []);
     $html = $response->html();
-    $_instance->logRenderedChild('PDA3bGm', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('LhkKWTE', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -34,15 +41,47 @@ echo $html;
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('dashboard.plot-management.create-component', [])->html();
-} elseif ($_instance->childHasBeenRendered('eZS1vn6')) {
-    $componentId = $_instance->getRenderedChildComponentId('eZS1vn6');
-    $componentTag = $_instance->getRenderedChildComponentTagName('eZS1vn6');
+} elseif ($_instance->childHasBeenRendered('LOao6sr')) {
+    $componentId = $_instance->getRenderedChildComponentId('LOao6sr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('LOao6sr');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('eZS1vn6');
+    $_instance->preserveRenderedChild('LOao6sr');
 } else {
     $response = \Livewire\Livewire::mount('dashboard.plot-management.create-component', []);
     $html = $response->html();
-    $_instance->logRenderedChild('eZS1vn6', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('LOao6sr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+
+    <!-- create customer modal -->
+    <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('dashboard.customers-management.create-component', [])->html();
+} elseif ($_instance->childHasBeenRendered('LYS3Ks9')) {
+    $componentId = $_instance->getRenderedChildComponentId('LYS3Ks9');
+    $componentTag = $_instance->getRenderedChildComponentTagName('LYS3Ks9');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('LYS3Ks9');
+} else {
+    $response = \Livewire\Livewire::mount('dashboard.customers-management.create-component', []);
+    $html = $response->html();
+    $_instance->logRenderedChild('LYS3Ks9', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+    <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('dashboard.sales-management.plot-sold-component', [])->html();
+} elseif ($_instance->childHasBeenRendered('DpKMTIk')) {
+    $componentId = $_instance->getRenderedChildComponentId('DpKMTIk');
+    $componentTag = $_instance->getRenderedChildComponentTagName('DpKMTIk');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('DpKMTIk');
+} else {
+    $response = \Livewire\Livewire::mount('dashboard.sales-management.plot-sold-component', []);
+    $html = $response->html();
+    $_instance->logRenderedChild('DpKMTIk', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

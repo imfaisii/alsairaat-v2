@@ -21,7 +21,6 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('number');
             $table->string('size');
-            $table->enum('status', ['available', 'sold'])->default('available');
             $table->string('street')->nullable();
             $table->foreignIdFor(PlotType::class)->constrained();
             $table->foreignIdFor(Society::class)->constrained();

@@ -64,4 +64,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Plot::class, 'user_id', 'id');
     }
+
+    /**
+     * Get all of the customers for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function customers(): HasMany
+    {
+        return $this->hasMany(Customer::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get all of the plotSales for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function plotSales(): HasMany
+    {
+        return $this->hasMany(PlotSale::class, 'user_id', 'id');
+    }
 }

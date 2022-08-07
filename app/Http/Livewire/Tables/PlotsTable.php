@@ -35,13 +35,13 @@ class PlotsTable extends DataTableComponent
             Column::make("Type", "plotType.name")
                 ->searchable()
                 ->sortable(),
-            Column::make("Status", "status")
+            Column::make("Status", "customer_id")
                 ->format(
                     function ($value, $row, Column $column) {
-                        if ($value == 'available')
-                            return '<span class="badge badge-glow bg-success">' . ucwords($value) . '</span>';
+                        if (!$value)
+                            return '<button class="badge badge-glow bg-success customer-sale" data-bs-toggle="modal" data-bs-target="#newCustomer" wire:click="$emit(' . "'" . 'setPlot' . "'" . ',' . $row->id . ')">Available</button>';
                         else
-                            return '<span class="badge badge-glow bg-warning">' . ucwords($value) . '</span>';
+                            return '<button class="badge badge-glow bg-warning customer-sale" data-bs-toggle="modal" data-bs-target="#plotSold" wire:click="$emit(' . "'" . 'setPlot' . "'" . ',' . $row->id . ')">Sold</button>';
                     }
                 )
                 ->html()

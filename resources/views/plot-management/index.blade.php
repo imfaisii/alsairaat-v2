@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@push('extended-css')
+    <style>
+        .customer-sale {
+            border: transparent;
+        }
+    </style>
+@endpush
 @section('content')
     <div class="row" id="basic-table">
         <div class="col-12">
@@ -18,4 +25,8 @@
     </div>
     <!-- create modal -->
     <livewire:dashboard.plot-management.create-component />
+
+    <!-- create customer modal -->
+    <livewire:dashboard.customers-management.create-component />
+    <livewire:dashboard.sales-management.plot-sold-component />
 @endsection
