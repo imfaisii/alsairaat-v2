@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    @include('partials.app.styles')
+    @include('vendors.toastr')
+    @livewireStyles
+    @livewireScripts
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    @stack('extended-css')
+</head>
+<!-- END: Head-->
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+<!-- BEGIN: Body-->
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static" data-open="click"
+    data-menu="vertical-menu-modern" data-col="">
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+    <!-- BEGIN: Header-->
+    <livewire:partials.header>
+        <!-- END: Header-->
+
+
+        <!-- BEGIN: Main Menu-->
+        <livewire:partials.side-bar>
+            <!-- END: Main Menu-->
+
+            <!-- BEGIN: Content-->
+            <div class="app-content content ">
+                <div class="content-overlay"></div>
+                <div class="header-navbar-shadow"></div>
+                <div class="content-wrapper container-xxl p-0">
+                    <div class="content-header row">
+                    </div>
+                    <div class="content-body">
+                        <x-bread-crumb-component />
+                        @yield('content')
+                    </div>
                 </div>
-            </header>
+            </div>
+            <!-- END: Content-->
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+            <livewire:partials.footer>
+
+                @include('partials.app.footer')
+                @include('partials.app.scripts')
+                @stack('extended-js')
+</body>
+<!-- END: Body-->
+
 </html>
