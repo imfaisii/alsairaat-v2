@@ -5,6 +5,7 @@
 <head>
     @include('partials.app.styles')
     @include('vendors.toastr')
+    @include('vendors.sweet-alert')
     @livewireStyles
     @livewireScripts
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
