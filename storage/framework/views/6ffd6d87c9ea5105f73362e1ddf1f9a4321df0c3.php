@@ -98,6 +98,16 @@
                                 </a>
                             </li>
                         </ul>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('is-s')): ?>
+                            <ul class="menu-content">
+                                <li <?php if(Route::is('society.management.assign')): ?> class="active" <?php endif; ?>>
+                                    <a class="d-flex align-items-center" href="<?php echo e(route('society.management.assign')); ?>">
+                                        <i data-feather="circle"></i>
+                                        <span class="menu-item text-truncate" data-i18n="List">Assign Societies</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        <?php endif; ?>
                     </li>
                     <li class="navigation-header"><span data-i18n="Plots &amp; Management">Plots Management</span>
                         <i data-feather="more-horizontal"></i>
@@ -118,6 +128,31 @@
                         <ul class="menu-content">
                             <li <?php if(Route::is('plot.management')): ?> class="active" <?php endif; ?>>
                                 <a class="d-flex align-items-center" href="<?php echo e(route('plot.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navigation-header"><span data-i18n="Expenses &amp; Management">Expenses Management</span>
+                        <i data-feather="more-horizontal"></i>
+                    </li>
+                    <li class="nav-item <?php if(Route::is('expense.management')): ?> open <?php endif; ?>">
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="credit-card"></i>
+                            <span class="menu-title text-truncate" data-i18n="Invoice">Expenses</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('expense.types.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('expense.types.management')); ?>">
+                                    <i data-feather="circle"></i>
+                                    <span class="menu-item text-truncate" data-i18n="List">Expense Type(s)</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-content">
+                            <li <?php if(Route::is('expense.management')): ?> class="active" <?php endif; ?>>
+                                <a class="d-flex align-items-center" href="<?php echo e(route('expense.management')); ?>">
                                     <i data-feather="circle"></i>
                                     <span class="menu-item text-truncate" data-i18n="List">Create/View</span>
                                 </a>

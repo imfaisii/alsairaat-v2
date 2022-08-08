@@ -1,102 +1,103 @@
 <div>
     <section id="dashboard-ecommerce">
-        <div class="row match-height">
-            <!-- Statistics Card -->
-            <div class="col-xl-12 col-md-12 col-12">
-                <div class="card card-statistics">
-                    <div class="card-header">
-                        <h4 class="card-title">Statistics</h4>
-                        <div class="d-flex align-items-center">
-                            <p class="card-text font-small-2 me-25 mb-0">Updated Just Now</p>
+        @can('is-s')
+            <div class="row match-height">
+                <!-- Statistics Card -->
+                <div class="col-xl-12 col-md-12 col-12">
+                    <div class="card card-statistics">
+                        <div class="card-header">
+                            <h4 class="card-title">Statistics</h4>
+                            <div class="d-flex align-items-center">
+                                <p class="card-text font-small-2 me-25 mb-0">Updated Just Now</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body statistics-body">
-                        <div class="row">
-                            <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-xl-0">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-primary me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="user" class="avatar-icon"></i>
+                        <div class="card-body statistics-body">
+                            <div class="row">
+                                <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-xl-0">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-primary me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="user" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">{{ $statistics['users'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">Users</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">{{ $statistics['users'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">Users</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-sm-0">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-info me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="map" class="avatar-icon"></i>
+                                <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-sm-0">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-info me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="map" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">{{ $statistics['societies'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">Societies</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">{{ $statistics['societies'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">Societies</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-xl-0">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-success me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="trending-up" class="avatar-icon"></i>
+                                <div class="col-xl-2 col-sm-4 col-12 mb-2 mb-xl-0">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-success me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="trending-up" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">{{ $statistics['plotsSold'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">Plots Sold</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">{{ $statistics['plotsSold'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">Plots Sold</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-12">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-danger me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="trending-down" class="avatar-icon"></i>
+                                <div class="col-xl-2 col-sm-4 col-12">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-danger me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="trending-down" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">{{ $statistics['plotsNotSold'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">Plots Left</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">{{ $statistics['plotsNotSold'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">Plots Left</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-12">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-info me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                <div class="col-xl-2 col-sm-4 col-12">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-info me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">RS : {{ $statistics['yearlySale'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">{{ date('Y') }} Sale</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">RS : {{ $statistics['yearlySale'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">{{ date('Y') }} Sale</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-12">
-                                <div class="d-flex flex-row">
-                                    <div class="avatar bg-light-secondary me-2">
-                                        <div class="avatar-content">
-                                            <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                <div class="col-xl-2 col-sm-4 col-12">
+                                    <div class="d-flex flex-row">
+                                        <div class="avatar bg-light-secondary me-2">
+                                            <div class="avatar-content">
+                                                <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="my-auto">
-                                        <h4 class="fw-bolder mb-0">RS : {{ $statistics['yearlySale'] }}</h4>
-                                        <p class="card-text font-small-3 mb-0">{{ date('Y') }} Sale</p>
+                                        <div class="my-auto">
+                                            <h4 class="fw-bolder mb-0">RS : {{ $statistics['yearlySale'] }}</h4>
+                                            <p class="card-text font-small-3 mb-0">{{ date('Y') }} Sale</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--/ Statistics Card -->
             </div>
-            <!--/ Statistics Card -->
-        </div>
-
+        @endcan
         <div class="row match-height">
             <div class="col-lg-4 col-12">
                 <div class="row match-height">

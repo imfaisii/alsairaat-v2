@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Plot extends Model
 {
@@ -58,5 +59,15 @@ class Plot extends Model
     public function plotType(): BelongsTo
     {
         return $this->belongsTo(PlotType::class);
+    }
+
+    /**
+     * Get all of the plotExpenses for the Plot
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function plotExpenses(): HasMany
+    {
+        return $this->hasMany(PlotExpense::class, 'plot_id', 'id');
     }
 }

@@ -76,6 +76,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the expenses for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function expenses(): HasMany
+    {
+        return $this->hasMany(Expense::class, 'user_id', 'id');
+    }
+
+    /**
      * Get all of the plotSales for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -83,5 +93,15 @@ class User extends Authenticatable
     public function plotSales(): HasMany
     {
         return $this->hasMany(PlotSale::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get all of the assigner for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function assigner(): HasMany
+    {
+        return $this->hasMany(AssignedSociety::class, 'assigned_by', 'id');
     }
 }

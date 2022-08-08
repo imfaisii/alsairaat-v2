@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard\SocietyManagement;
 
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateComponent extends Component
@@ -34,6 +35,9 @@ class CreateComponent extends Component
         auth()->user()->societies()->firstOrCreate($this->society)
             ? $this->emit('toast', 'success', "$master Management", "The $master was created successfully.")
             : $this->emit('toast', 'error', "$master Management", "The $master was not created successfully, please try again.");
+
+        if (Gate::denies('is-s'))
+            $this->emit('toast', 'warning', "Restriction Management", "You will see the society once the super admin assigns you the society.");
 
         $this->emit('refreshDatatable');
     }

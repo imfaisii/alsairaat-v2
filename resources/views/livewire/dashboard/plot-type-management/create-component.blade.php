@@ -4,11 +4,11 @@
             <div class="modal-header bg-transparent">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div wire:submit.prevent='store' class="modal-body pb-5 px-sm-5 pt-50">
+            <div class="modal-body pb-5 px-sm-5 pt-50">
                 <div class="text-center mb-2">
                     <h1 class="mb-1">New Plot Type Information</h1>
                 </div>
-                <form id="editUserForm" class="row gy-1 pt-75" onsubmit="return false">
+                <form wire:submit.prevent='store' class="row gy-1 pt-75">
                     <div class="col-12 col-md-12">
                         <label class="form-label">Name</label>
                         <input wire:model.lazy='plot.name' type="text"

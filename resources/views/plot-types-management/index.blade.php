@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-between">
-                    <h4 class="card-title">Plots Table</h4>
+                    <h4 class="card-title">Plot Types Table</h4>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newPlotType">
                         <i data-feather="plus"></i>
                         &nbsp;New Plot Type

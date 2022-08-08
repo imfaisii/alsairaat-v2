@@ -29,4 +29,9 @@
     <!-- create customer modal -->
     <livewire:dashboard.customers-management.create-component />
     <livewire:dashboard.sales-management.plot-sold-component />
+    <livewire:dashboard.sales-management.plot-history-component />
 @endsection
+
+@push('extended-js')
+    <script src="{{ asset('app-assets/js/scripts/components/components-accordion.js') }}"></script>
+@endpush

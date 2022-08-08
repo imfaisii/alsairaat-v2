@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\RestrictionScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,6 +17,13 @@ class Society extends Model
         'address',
         'user_id'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new RestrictionScope());
+    }
 
     /**
      * Get the user that owns the Society

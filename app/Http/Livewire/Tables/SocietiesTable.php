@@ -32,9 +32,9 @@ class SocietiesTable extends DataTableComponent
                 ->searchable(),
             Column::make("Address", "address")
                 ->searchable(),
-            Column::make("Added By", "user.name")
-                ->sortable()
-                ->searchable(),
+            // Column::make("Added By", "user.name")
+            //     ->sortable()
+            //     ->searchable(),
             Column::make("Created at", "created_at")
                 ->format(
                     fn ($value, $row, Column $column) => $value->diffForHumans()
@@ -47,6 +47,6 @@ class SocietiesTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Gate::allows('is-s') ? Society::query() : Society::query()->whereBelongsTo(auth()->user());
+        return Society::query();
     }
 }
