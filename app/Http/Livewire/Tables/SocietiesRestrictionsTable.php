@@ -29,8 +29,6 @@ class SocietiesRestrictionsTable extends DataTableComponent
                 ->sortable(),
             Column::make("Assigned to", "user.name")
                 ->sortable(),
-            Column::make("Assigned by", "assigner.name")
-                ->sortable(),
             Column::make("Created at", "created_at")
                 ->format(
                     fn ($value, $row, Column $column) => $value->diffForHumans()
